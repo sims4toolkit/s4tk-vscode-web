@@ -1,9 +1,7 @@
 <script lang="ts">
-  import { link, location } from "svelte-spa-router";
+  import { link } from "svelte-spa-router";
   import Settings from "src/lib/settings";
-
-  $: sandboxIcon = $location === "/" ? "terminal" : "terminal-outline";
-  $: tutorialsIcon = $location === "/tutorials" ? "book" : "book-outline";
+  import NavbarLink from "./NavbarLink.svelte";
 
   // redundant so icon can react without accessing settings
   let isLightTheme = Settings.isLightTheme;
@@ -26,14 +24,10 @@
     <img src="./assets/s4tk-vscode.png" alt="S4TK" class="h-5" />
     <h2 class="font-bold">S4TK &times; VS Code</h2>
   </a>
-  <div class="flex gap-3 items-center">
-    <!-- <a href="/" use:link title="Home">
-      <img
-        src="./assets/home.svg"
-        alt="Home"
-        class="svg tint-on-hover h-5"
-      />
-    </a> -->
+  <div class="flex gap-4 items-center">
+    <NavbarLink href="/features" icon="sparkles" alt="Star" title="Features" />
+    <NavbarLink href="/docs" icon="library" alt="Books" title="Documentation" />
+    <NavbarLink href="/updates" icon="newspaper" alt="News" title="Updates" />
     <button on:click={toggleTheme} title="Theme">
       <img
         src="./assets/{themeIcon}-outline.svg"

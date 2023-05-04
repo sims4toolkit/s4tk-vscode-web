@@ -21,4 +21,3 @@
     <p class="text-subtle text-xs">Error 404</p>
   </div>
 </section>
-<Footer />
