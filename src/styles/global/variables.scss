@@ -20,19 +20,22 @@
   // filters
   --filter-dark: invert(13%) sepia(3%) saturate(427%) hue-rotate(314deg) brightness(105%) contrast(84%);
   --filter-light: invert(99%) sepia(74%) saturate(352%) hue-rotate(196deg) brightness(121%) contrast(100%);
+  --filter-bg-blur: blur(8px);
 
   &.dark {
     // colors
     --color-text: #f9f9f9;
     --color-text-subtle: #{$gray-400};
     --color-bg: #{$gray-800};
+    --color-bg-blur: #{transparentize($gray-900, 0.2)};
     --color-accent: #{$accent-primary-dark};
+    --color-accent-invert: #{$accent-primary-light};
     --color-accent-secondary: #{$accent-secondary-dark};
+    --color-accent-secondary-invert: #{$accent-secondary-light};
     --color-shadow: rgba(0, 0, 0, 0.2);
     --color-scrollbar-bg: #{$gray-800};
     --color-scrollbar-fg: #{$gray-500};
     --color-scrollbar-hover: #{$gray-400};
-    --color-blur-fallback: rgba(0, 0, 0, 0.8);
     --color-danger: #f87171;
 
     // filters
@@ -40,7 +43,6 @@
     --filter-svg-invert: var(--filter-dark);
     --filter-svg-accent: invert(69%) sepia(58%) saturate(256%) hue-rotate(114deg) brightness(95%) contrast(95%);
     --filter-svg-gold: invert(78%) sepia(47%) saturate(513%) hue-rotate(360deg) brightness(105%) contrast(90%);
-    --filter-bg-blur: blur(12px) brightness(55%);
   }
 
   &:not(.dark) {
@@ -48,13 +50,15 @@
     --color-text: #1b1b1b;
     --color-text-subtle: #{$gray-600};
     --color-bg: #{$gray-100};
+    --color-bg-blur: #{transparentize($gray-100, 0.3)};
     --color-accent: #{$accent-primary-light};
+    --color-accent-invert: #{$accent-primary-dark};
     --color-accent-secondary: #{$accent-secondary-light};
+    --color-accent-secondary-invert: #{$accent-secondary-dark};
     --color-shadow: rgba(64, 64, 64, 0.15);
     --color-scrollbar-bg: #{$gray-200};
     --color-scrollbar-fg: #{$gray-400};
     --color-scrollbar-hover: #{$gray-500};
-    --color-blur-fallback: rgba(255, 255, 255, 0.8);
     --color-danger: #dc2626;
 
     // filters
@@ -62,6 +66,5 @@
     --filter-svg-invert: var(--filter-light);
     --filter-svg-accent: invert(52%) sepia(99%) saturate(377%) hue-rotate(115deg) brightness(86%) contrast(86%);
     --filter-svg-gold: invert(62%) sepia(85%) saturate(1249%) hue-rotate(11deg) brightness(97%) contrast(86%);
-    --filter-bg-blur: blur(12px) brightness(96%);
   }
 }

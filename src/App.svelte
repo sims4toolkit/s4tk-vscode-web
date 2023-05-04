@@ -1,7 +1,7 @@
 <script lang="ts">
   import Router from "svelte-spa-router";
   import Navbar from "src/components/Navbar.svelte";
-  import HomePage from "src/pages/HomePage.svelte";
+  import HomePage from "src/pages/home/HomePage.svelte";
   import NotFoundPage from "src/pages/NotFoundPage.svelte";
 
   const routes = {
