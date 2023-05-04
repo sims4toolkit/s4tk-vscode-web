@@ -53,6 +53,10 @@
         EA.
       </p>
       <p class="text-subtle">
+        Visual Studio Code, VS Code, and the Visual Studio Code icon are
+        registered trademarks of Microsoft Corporation.
+      </p>
+      <p class="text-subtle">
         All icons on this website are supplied by
         <a
           href="https://ionic.io/ionicons"

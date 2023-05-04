@@ -24,7 +24,7 @@
     use:link
   >
     <img src="./assets/s4tk-vscode.png" alt="S4TK" class="h-5" />
-    <h2 class="font-bold">S4TK &times; VSCode</h2>
+    <h2 class="font-bold">S4TK &times; VS Code</h2>
   </a>
   <div class="flex gap-3 items-center">
     <!-- <a href="/" use:link title="Home">

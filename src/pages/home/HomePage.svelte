@@ -4,13 +4,15 @@
 </script>
 
 <svelte:head>
-  <title>S4TK VSCode</title>
+  <title>S4TK &times; VS Code</title>
 </svelte:head>
 
-<section class="flex-1 w-full">
+<section class="flex-1 w-full flex flex-col items-center">
   <HomeHero />
-  <div class="w-full xl:max-w-screen-xl px-4 flex flex-col justify-center">
+  <div
+    class="mt-10 w-full xl:max-w-screen-xl px-4 flex flex-col justify-center"
+  >
     <p>This website is under construction.</p>
   </div>
 </section>
-<Footer />
+<!-- <Footer /> -->
