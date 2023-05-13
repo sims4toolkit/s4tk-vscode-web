@@ -5,10 +5,32 @@
   import Collapsable from "src/components/layout/Collapsable.svelte";
   import NavbarLink from "./NavbarLink.svelte";
   import NavTrayLink from "./NavTrayLink.svelte";
+  import type { NavItem } from "./types";
 
   let trayVisible = false;
   let isLightTheme = Settings.isLightTheme;
   $: themeIcon = isLightTheme ? "sunny" : "moon";
+
+  const navItems: NavItem[] = [
+    {
+      href: "/features",
+      title: "Features",
+      icon: "sparkles",
+      alt: "Star",
+    },
+    {
+      href: "/docs",
+      title: "Documentation",
+      icon: "library",
+      alt: "Books",
+    },
+    {
+      href: "/updates",
+      title: "Updates",
+      icon: "newspaper",
+      alt: "News",
+    },
+  ];
 
   function toggleTheme() {
     Settings.isLightTheme = !Settings.isLightTheme;
@@ -34,19 +56,9 @@
   </a>
   <Collapsable bind:expanded={trayVisible}>
     <div class="flex gap-4 sm:gap-6 items-center">
-      <NavbarLink
-        href="/features"
-        icon="sparkles"
-        alt="Star"
-        title="Features"
-      />
-      <NavbarLink
-        href="/docs"
-        icon="library"
-        alt="Books"
-        title="Documentation"
-      />
-      <NavbarLink href="/updates" icon="newspaper" alt="News" title="Updates" />
+      {#each navItems as navItem, key (key)}
+        <NavbarLink {navItem} />
+      {/each}
       <button on:click={toggleTheme} title="Theme">
         <img
           src="./assets/{themeIcon}-outline.svg"
@@ -63,27 +75,9 @@
     transition:fly={{ x: 500, duration: 150 }}
     class="fixed top-0 left-0 w-screen h-screen pt-16 flex flex-col justify-center items-center gap-8 z-30 blurred-bg"
   >
-    <NavTrayLink
-      href="/features"
-      icon="sparkles"
-      alt="Star"
-      title="Features"
-      onClick={closeTray}
-    />
-    <NavTrayLink
-      href="/docs"
-      icon="library"
-      alt="Books"
-      title="Documentation"
-      onClick={closeTray}
-    />
-    <NavTrayLink
-      href="/updates"
-      icon="newspaper"
-      alt="News"
-      title="Updates"
-      onClick={closeTray}
-    />
+    {#each navItems as navItem, key (key)}
+      <NavTrayLink {navItem} onClick={closeTray} />
+    {/each}
     <button
       on:click={toggleTheme}
       class="flex items-center gap-4 zoom-on-hover absolute bottom-8"
