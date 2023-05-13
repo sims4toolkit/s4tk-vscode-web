@@ -20,7 +20,7 @@
     },
     {
       href: "/docs",
-      title: "Documentation",
+      title: "Docs",
       icon: "library",
       alt: "Books",
     },
