@@ -19,8 +19,8 @@
       alt: "Star",
     },
     {
-      href: "/docs",
-      title: "Docs",
+      href: "/learn",
+      title: "Learn",
       icon: "library",
       alt: "Books",
     },
