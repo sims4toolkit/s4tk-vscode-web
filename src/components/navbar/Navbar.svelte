@@ -4,7 +4,7 @@
   import Settings from "src/lib/settings";
   import Collapsable from "src/components/layout/Collapsable.svelte";
   import NavbarLink from "./NavbarLink.svelte";
-  import NavTrayLink from "./NavTrayLink.svelte";
+  import NavbarTrayLink from "./NavbarTrayLink.svelte";
   import type { NavItem } from "./types";
 
   let trayVisible = false;
@@ -76,7 +76,7 @@
     class="fixed top-0 left-0 w-screen h-screen pt-16 flex flex-col justify-center items-center gap-8 z-30 blurred-bg"
   >
     {#each navItems as navItem, key (key)}
-      <NavTrayLink {navItem} onClick={closeTray} />
+      <NavbarTrayLink {navItem} onClick={closeTray} />
     {/each}
     <button
       on:click={toggleTheme}
