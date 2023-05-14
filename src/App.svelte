@@ -11,8 +11,10 @@
   const routes = {
     "/": HomePage,
     "/docs": DocsPage,
+    "/docs/:subpage": DocsPage,
     "/features": FeaturesPage,
     "/updates": UpdatesPage,
+    "/updates/:version": UpdatesPage,
     "*": NotFoundPage,
   };
 </script>

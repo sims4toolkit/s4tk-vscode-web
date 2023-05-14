@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Footer from "src/components/Footer.svelte";
   import HomeHero from "./HomeHero.svelte";
 </script>
