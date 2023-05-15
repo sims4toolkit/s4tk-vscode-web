@@ -15,7 +15,7 @@
     "/learn": LearnPage,
     "/learn/:subpage": LearnPage,
     "/updates": UpdatesPage,
-    "/updates/:version": UpdatesPage,
+    "/updates/:subpage": UpdatesPage,
     "*": NotFoundPage,
   };
 </script>
