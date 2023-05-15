@@ -13,13 +13,6 @@ namespace DocumentUtils {
       document.documentElement.classList.add("dark");
     }
   }
-
-  export function toggleBooleanAttribute(attr: string, value: boolean) {
-    document.documentElement.setAttribute(
-      attr,
-      value ? "true" : "false"
-    );
-  }
 }
 
 export default DocumentUtils;

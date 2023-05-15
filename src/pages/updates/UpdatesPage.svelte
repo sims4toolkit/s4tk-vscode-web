@@ -1,7 +1,20 @@
 <script lang="ts">
-  import Sidenav from "src/components/layout/Sidenav.svelte";
+  import { onMount } from "svelte";
+  import type { SubpageIndex } from "src/global";
+  import { fetchPageIndex } from "src/lib/data";
+  import ContentWithSidenav from "src/components/layout/ContentWithSidenav.svelte";
 
-  export let params: { version?: string } = null;
+  export let params: { version?: string } = {};
+
+  const basePageName = "Updates";
+  const basePageEndpoint = "updates";
+  let subpageIndex: SubpageIndex | undefined;
+
+  onMount(() => {
+    fetchPageIndex(basePageEndpoint).then((index) => {
+      subpageIndex = index;
+    });
+  });
 </script>
 
 <svelte:head>
@@ -10,22 +23,13 @@
 
 <section class="flex-1 w-full flex flex-col items-center">
   <div
-    class="mt-20 w-full xl:max-w-screen-xl px-4 flex flex-col justify-center"
+    class="pt-20 pb-10 w-full xl:max-w-screen-xl px-4 flex flex-col justify-center"
   >
-    <Sidenav
-      basePage="updates"
-      basePageName="Updates"
-      activeSubpage={params?.version}
-      items={[
-        {
-          title: "Second",
-          subpage: "0-1-0-a-2",
-        },
-        {
-          title: "First",
-          subpage: "0-1-0-a-1",
-        },
-      ]}
+    <ContentWithSidenav
+      {basePageName}
+      {basePageEndpoint}
+      bind:activeSubpage={params.version}
+      {subpageIndex}
     />
   </div>
 </section>
