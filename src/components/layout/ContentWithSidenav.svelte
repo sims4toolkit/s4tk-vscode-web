@@ -62,7 +62,7 @@
     <p>Error</p>
   {:else}
     <Sidenav {basePageName} {basePageEndpoint} {activeSubpage} {subpageIndex} />
-    <div>
+    <div class="w-full">
       {#if contentLoadError}
         <SectionHeader title="Error 404" />
         <p class="mt-4">
