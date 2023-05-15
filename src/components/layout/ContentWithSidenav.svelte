@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { replace } from "svelte-spa-router";
-  import type { SubpageIndex } from "src/global";
+  import type { SubpageData, SubpageIndex } from "src/global";
   import { fetchPageContent, fetchPageIndex } from "src/lib/data";
   import SectionHeader from "src/components/elements/SectionHeader.svelte";
   import Sidenav from "./Sidenav.svelte";
@@ -14,6 +14,7 @@
   let htmlContent: string | undefined;
   let indexLoadError: boolean = false;
   let contentLoadError: boolean = false;
+  let subpageData: SubpageData | undefined;
 
   onMount(async () => {
     const index = await fetchPageIndex(basePageEndpoint);
@@ -36,7 +37,19 @@
     const content = await fetchPageContent(basePageEndpoint, activeSubpage);
     if (content) {
       htmlContent = content;
+
+      for (let i = 0; i < subpageIndex.groups.length; ++i) {
+        const group = subpageIndex.groups[i];
+        for (let j = 0; j < subpageIndex.groups.length; ++j) {
+          const pageData = group.pages[j];
+          if (pageData.endpoint === activeSubpage) {
+            subpageData = pageData;
+            return;
+          }
+        }
+      }
     } else {
+      subpageData = undefined;
       htmlContent = undefined;
       contentLoadError = true;
     }
@@ -55,7 +68,17 @@
           Page at '{basePageEndpoint}/{activeSubpage}' could not be found.
         </p>
       {:else if Boolean(htmlContent)}
-        {@html htmlContent}
+        {#if Boolean(subpageData)}
+          <div class="mb-10">
+            <p class="mb-4 text-subtle text-sm">
+              Updated: {subpageData.updated}
+            </p>
+            <SectionHeader title={subpageData.title} />
+          </div>
+        {/if}
+        <div class="subpage-content">
+          {@html htmlContent}
+        </div>
       {:else}
         <p>Loading...</p>
       {/if}

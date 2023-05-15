@@ -2,11 +2,13 @@
 
 export interface SubpageIndex {
   groups: {
-    id: string;
     title: string;
-    pages: {
-      title: string;
-      endpoint: string;
-    }[];
+    pages: SubpageData[];
   }[];
+}
+
+export interface SubpageData {
+  endpoint: string;
+  title: string;
+  updated: string;
 }

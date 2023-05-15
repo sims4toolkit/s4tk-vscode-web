@@ -27,7 +27,7 @@
 </script>
 
 <div class="block md:hidden w-full">
-  <h4 class="pl-4 mb-2 uppercase font-bold text-sm">
+  <h4 class="pl-4 mb-4 uppercase font-bold text-sm">
     {basePageName}
   </h4>
   {#if subpageIndexLoaded}
@@ -56,7 +56,9 @@
   {#if subpageIndexLoaded}
     {#each subpageIndex.groups as group, key (key)}
       <div class="mb-10">
-        <h4 class="pl-4 mb-2 uppercase font-bold text-sm">
+        <h4
+          class="pl-4 mb-4 uppercase font-bold text-sm border-l-2 border-solid border-transparent"
+        >
           {group.title}
         </h4>
         {#each group.pages as page, key (key)}
