@@ -41,7 +41,7 @@
 
       for (let i = 0; i < subpageIndex.groups.length; ++i) {
         const group = subpageIndex.groups[i];
-        for (let j = 0; j < subpageIndex.groups.length; ++j) {
+        for (let j = 0; j < group.pages.length; ++j) {
           const pageData = group.pages[j];
           if (pageData.endpoint === activeSubpage) {
             subpageData = pageData;

@@ -68,14 +68,14 @@
   .html-renderer {
     h2 {
       font-size: 1.2rem;
-      margin: {
-        top: 1.5rem;
-        bottom: 0.5rem;
-      }
+      font-weight: bold;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     h4 {
       color: var(--color-text-subtle);
+      font-weight: bold;
       text-transform: uppercase;
       font-size: 0.9rem;
       font-weight: bold;
@@ -83,7 +83,7 @@
     }
 
     hr {
-      margin-top: 1.5rem;
+      margin: 1.5rem 0;
       border-color: var(--color-text-subtle);
     }
 
@@ -116,24 +116,25 @@
       display: inline-block;
     }
 
-    .paragraphs {
-      p,
-      ul {
-        & + ul,
-        & + p:not(.footnote) {
-          margin-top: 0.5rem;
-        }
-      }
-    }
-
     img.feature-img {
       -webkit-box-shadow: 2px 2px 4px var(--color-shadow);
       box-shadow: 2px 2px 8px var(--color-shadow);
     }
 
+    .paragraphs {
+      p,
+      ul {
+        & + ul,
+        & + p:not(.footnote) {
+          margin-top: 1rem;
+        }
+      }
+    }
+
     .footnote {
       color: var(--color-text-subtle);
       font-size: 0.85rem;
+      margin-top: 0.15rem;
     }
 
     .danger {
