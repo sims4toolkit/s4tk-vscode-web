@@ -45,3 +45,13 @@ export async function fetchPageContent(basePage: string, endpoint: string): Prom
     console.error(`Could not fetch content for "${basePage}/${endpoint}" [${e}]`);
   }
 }
+
+/**
+ * Returns the URL at which an image can be found.
+ * 
+ * @param basePage Base page that the image is found on
+ * @param image Name of the image, including its extension
+ */
+export function getImageSource(basePage: string, image: string): string {
+  return `${BASE_URL}/${basePage}/images/${image}`;
+}

@@ -5,6 +5,7 @@
   import { fetchPageContent, fetchPageIndex } from "src/lib/data";
   import SectionHeader from "src/components/elements/SectionHeader.svelte";
   import Sidenav from "./Sidenav.svelte";
+  import HtmlRenderer from "./HtmlRenderer.svelte";
 
   export let basePageName: string;
   export let basePageEndpoint: string;
@@ -76,9 +77,7 @@
             <SectionHeader title={subpageData.title} />
           </div>
         {/if}
-        <div class="subpage-content">
-          {@html htmlContent}
-        </div>
+        <HtmlRenderer {basePageEndpoint} {htmlContent} />
       {:else}
         <p>Loading...</p>
       {/if}
