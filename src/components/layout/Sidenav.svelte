@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { link } from "svelte-spa-router";
+  import { link, location, replace } from "svelte-spa-router";
   import type { SubpageIndex } from "src/global";
 
   export let basePageName: string;
@@ -7,12 +7,26 @@
   export let activeSubpage: string | undefined;
   export let subpageIndex: SubpageIndex | undefined;
 
+  let selectedOption: string | undefined = activeSubpage;
+
   $: subpageIndexLoaded = Boolean(subpageIndex?.length);
 
   $: activeItemIndex =
     subpageIndex?.findIndex(({ endpoint }) => endpoint === activeSubpage) ?? -1;
 
-  // FIXME: redirect page when select changes
+  $: {
+    selectedOption = activeSubpage;
+  }
+
+  $: {
+    selectedOption;
+    redirectOnSelect();
+  }
+
+  function redirectOnSelect() {
+    const endpoint = `/${basePageEndpoint}/${selectedOption}`;
+    if ($location !== endpoint) replace(endpoint);
+  }
 </script>
 
 <div class="block md:hidden w-full">
@@ -22,7 +36,7 @@
   {#if subpageIndexLoaded}
     <select
       class="border border-solid border-white py-2 pl-4 rounded-md w-full"
-      bind:value={activeSubpage}
+      bind:value={selectedOption}
     >
       {#each subpageIndex as item, key (key)}
         <option value={item.endpoint}>{item.title}</option>
