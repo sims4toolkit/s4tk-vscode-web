@@ -1,6 +1,12 @@
 /// <reference types="svelte" />
 
-export type SubpageIndex = {
-  title: string;
-  endpoint: string;
-}[];
+export interface SubpageIndex {
+  groups: {
+    id: string;
+    title: string;
+    pages: {
+      title: string;
+      endpoint: string;
+    }[];
+  }[];
+}

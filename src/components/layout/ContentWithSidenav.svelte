@@ -17,10 +17,10 @@
 
   onMount(async () => {
     const index = await fetchPageIndex(basePageEndpoint);
-    if (index?.length) {
+    if (index) {
       subpageIndex = index;
       if (!activeSubpage) {
-        replace(`/${basePageEndpoint}/${index[0].endpoint}`);
+        replace(`/${basePageEndpoint}/${index.groups[0].pages[0].endpoint}`);
       }
     } else {
       indexLoadError = true;
@@ -28,7 +28,7 @@
   });
 
   $: {
-    if (activeSubpage && subpageIndex?.length) fetchHtmlContent();
+    if (activeSubpage && subpageIndex) fetchHtmlContent();
   }
 
   async function fetchHtmlContent() {

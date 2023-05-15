@@ -16,11 +16,11 @@ export async function fetchPageIndex(basePage: string): Promise<SubpageIndex | u
     if (INDEX_CACHE.has(basePage)) return INDEX_CACHE.get(basePage);
     const url = `${BASE_URL}/${basePage}/_index.json`;
     const response = await fetch(url);
-    const json = await response.json();
-    if (!Array.isArray(json?.pages))
+    const json = await response.json() as SubpageIndex;
+    if (!Array.isArray(json?.groups))
       throw Error("Did not find expected JSON structure");
-    INDEX_CACHE.set(basePage, json.pages as SubpageIndex);
-    return json.pages;
+    INDEX_CACHE.set(basePage, json);
+    return json;
   } catch (e) {
     console.error(`Could not fetch index for "${basePage}" [${e}]`);
   }

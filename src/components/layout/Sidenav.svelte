@@ -9,10 +9,7 @@
 
   let selectedOption: string | undefined = activeSubpage;
 
-  $: subpageIndexLoaded = Boolean(subpageIndex?.length);
-
-  $: activeItemIndex =
-    subpageIndex?.findIndex(({ endpoint }) => endpoint === activeSubpage) ?? -1;
+  $: subpageIndexLoaded = Boolean(subpageIndex);
 
   $: {
     selectedOption = activeSubpage;
@@ -38,8 +35,12 @@
       class="border border-solid border-white py-2 pl-4 rounded-md w-full"
       bind:value={selectedOption}
     >
-      {#each subpageIndex as item, key (key)}
-        <option value={item.endpoint}>{item.title}</option>
+      {#each subpageIndex.groups as group, key (key)}
+        <optgroup label={group.title}>
+          {#each group.pages as page, key (key)}
+            <option value={page.endpoint}>{page.title}</option>
+          {/each}
+        </optgroup>
       {/each}
     </select>
   {:else}
@@ -52,21 +53,25 @@
 </div>
 
 <div class="hidden md:block sidenav">
-  <h4 class="pl-4 mb-2 uppercase font-bold text-sm">
-    {basePageName}
-  </h4>
   {#if subpageIndexLoaded}
-    {#each subpageIndex as item, key (key)}
-      <a
-        use:link
-        href="/{basePageEndpoint}/{item.endpoint}"
-        class="block no-underline sidenav-item pl-4 py-1 border-l-2 border-solid border-gray-300 dark:border-gray-700"
-        class:active={key === activeItemIndex}
-      >
-        <h4 class="text-subtle">
-          {item.title}
+    {#each subpageIndex.groups as group, key (key)}
+      <div class="mb-10">
+        <h4 class="pl-4 mb-2 uppercase font-bold text-sm">
+          {group.title}
         </h4>
-      </a>
+        {#each group.pages as page, key (key)}
+          <a
+            use:link
+            href="/{basePageEndpoint}/{page.endpoint}"
+            class="block no-underline sidenav-item pl-4 py-1 border-l-2 border-solid border-gray-300 dark:border-gray-700"
+            class:active={activeSubpage === page.endpoint}
+          >
+            <h4 class="text-subtle">
+              {page.title}
+            </h4>
+          </a>
+        {/each}
+      </div>
     {/each}
   {:else}
     <p
