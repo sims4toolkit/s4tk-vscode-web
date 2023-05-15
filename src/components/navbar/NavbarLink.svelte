@@ -4,7 +4,7 @@
 
   export let navItem: NavItem;
 
-  $: pageActive = $location === navItem.href;
+  $: pageActive = $location?.startsWith(navItem.href);
   $: currentIcon = pageActive ? navItem.icon : `${navItem.icon}-outline`;
 </script>
 
