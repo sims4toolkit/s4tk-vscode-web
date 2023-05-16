@@ -6,10 +6,13 @@
   import NavbarLink from "./NavbarLink.svelte";
   import NavbarTrayLink from "./NavbarTrayLink.svelte";
   import type { NavItem } from "./types";
+  import { onMount } from "svelte";
 
   let trayVisible = false;
   let isLightTheme = Settings.isLightTheme;
   $: themeIcon = isLightTheme ? "sunny" : "moon";
+  let isWindows = Settings.operatingSystem === "windows";
+  $: osIcon = isWindows ? "logo-windows" : "logo-apple";
 
   const navItems: NavItem[] = [
     {
@@ -37,9 +40,29 @@
     isLightTheme = Settings.isLightTheme;
   }
 
+  function toggleOS() {
+    Settings.operatingSystem = isWindows ? "macos" : "windows";
+    isWindows = Settings.operatingSystem === "windows";
+  }
+
   function closeTray() {
     trayVisible = false;
   }
+
+  onMount(() => {
+    if (!Settings.operatingSystem) {
+      if (navigator.userAgent.indexOf("Mac") != -1) {
+        Settings.operatingSystem = "macos";
+      } else {
+        Settings.operatingSystem = "windows";
+      }
+
+      isWindows = Settings.operatingSystem === "windows";
+    } else {
+      // just to get document to update
+      Settings.operatingSystem = Settings.operatingSystem;
+    }
+  });
 </script>
 
 <nav
@@ -66,6 +89,13 @@
           class="svg tint-on-hover h-5"
         />
       </button>
+      <button on:click={toggleOS} title="Operating System">
+        <img
+          src="./assets/{osIcon}.svg"
+          alt={isWindows ? "Windows" : "macOS"}
+          class="svg tint-on-hover h-5"
+        />
+      </button>
     </div>
   </Collapsable>
 </nav>
@@ -80,14 +110,25 @@
     {/each}
     <button
       on:click={toggleTheme}
-      class="flex items-center gap-4 zoom-on-hover absolute bottom-8"
+      class="flex items-center gap-4 zoom-on-hover absolute bottom-20"
     >
       <img
-        src="./assets/{themeIcon}-outline.svg"
+        src="./assets/{themeIcon}.svg"
         alt={isLightTheme ? "Sun" : "Moon"}
         class="svg tint-on-hover h-5"
       />
       <p class="text-subtle">{isLightTheme ? "Light" : "Dark"} Theme</p>
+    </button>
+    <button
+      on:click={toggleOS}
+      class="flex items-center gap-4 zoom-on-hover absolute bottom-8"
+    >
+      <img
+        src="./assets/{osIcon}.svg"
+        alt={isWindows ? "Windows" : "macOS"}
+        class="svg tint-on-hover h-5"
+      />
+      <p class="text-subtle">{isWindows ? "Windows" : "macOS"}</p>
     </button>
   </div>
 {/if}

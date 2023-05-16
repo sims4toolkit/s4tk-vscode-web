@@ -32,7 +32,7 @@
   </h4>
   {#if subpageIndexLoaded}
     <select
-      class="border border-solid border-white py-2 pl-4 rounded-md w-full"
+      class="border border-solid border-gray-900 dark:border-gray-200 py-2 pl-4 rounded-md w-full"
       bind:value={selectedOption}
     >
       {#each subpageIndex.groups as group, key (key)}

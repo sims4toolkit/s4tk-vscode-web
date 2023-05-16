@@ -13,6 +13,10 @@ namespace DocumentUtils {
       document.documentElement.classList.add("dark");
     }
   }
+
+  export function toggleOperatingSystem(os: "macos" | "windows") {
+    document.documentElement.setAttribute("data-os", os);
+  }
 }
 
 export default DocumentUtils;
