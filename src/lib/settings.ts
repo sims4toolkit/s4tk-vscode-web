@@ -133,6 +133,7 @@ type SettingName = keyof UserSettings;
 interface UserSettings {
   isLightTheme: boolean;
   operatingSystem: "macos" | "windows";
+  hasSeenOsDisclaimer: boolean;
 }
 
 type StoredUserSettings = {
@@ -184,6 +185,9 @@ const Settings = getSettingsProxy({
       (value) => DocumentUtils.toggleOperatingSystem(value)
     ]
   },
+  hasSeenOsDisclaimer: {
+    cls: StoredBoolean,
+  }
 });
 
 export default Settings;

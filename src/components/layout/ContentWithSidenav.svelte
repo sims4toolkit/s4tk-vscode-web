@@ -3,7 +3,9 @@
   import { replace } from "svelte-spa-router";
   import type { SubpageData, SubpageIndex } from "src/global";
   import { fetchPageContent, fetchPageIndex } from "src/lib/data";
+  import Settings from "src/lib/settings";
   import SectionHeader from "src/components/elements/SectionHeader.svelte";
+  import OsDisclaimer from "src/components/elements/OsDisclaimer.svelte";
   import Sidenav from "./Sidenav.svelte";
   import HtmlRenderer from "./HtmlRenderer.svelte";
 
@@ -11,6 +13,7 @@
   export let basePageEndpoint: string;
   export let activeSubpage: string | undefined;
 
+  let showOsDisclaimer = !Settings.hasSeenOsDisclaimer;
   let subpageIndex: SubpageIndex | undefined;
   let htmlContent: string | undefined;
   let indexLoadError: boolean = false;
@@ -63,6 +66,11 @@
   {:else}
     <Sidenav {basePageName} {basePageEndpoint} {activeSubpage} {subpageIndex} />
     <div class="w-full">
+      {#if showOsDisclaimer}
+        <div class="mb-10">
+          <OsDisclaimer onDismiss={() => (showOsDisclaimer = false)} />
+        </div>
+      {/if}
       {#if contentLoadError}
         <SectionHeader title="Error 404" />
         <p class="mt-4">
