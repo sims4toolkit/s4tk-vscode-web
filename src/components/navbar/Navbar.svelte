@@ -128,7 +128,7 @@
         alt={isWindows ? "Windows" : "macOS"}
         class="svg tint-on-hover h-5"
       />
-      <p class="text-subtle">{isWindows ? "Windows" : "macOS"}</p>
+      <p class="text-subtle">{isWindows ? "Windows" : "macOS"} Tips</p>
     </button>
   </div>
 {/if}
