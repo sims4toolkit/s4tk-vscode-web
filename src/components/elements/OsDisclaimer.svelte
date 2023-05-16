@@ -12,10 +12,18 @@
 <div
   class="relative mx-auto flex flex-col sm:flex-row items-center py-8 sm:py-4 px-8 rounded-md shadow-md bg-gray-50 dark:bg-gray-900"
 >
-  <img class="h-8 svg macos" src="./assets/logo-apple.svg" alt="macOS" />
-  <img class="h-8 svg windows" src="./assets/logo-windows.svg" alt="Windows" />
+  <img
+    class="h-12 sm:h-8 svg macos"
+    src="./assets/logo-apple.svg"
+    alt="macOS"
+  />
+  <img
+    class="h-12 sm:h-8 svg windows"
+    src="./assets/logo-windows.svg"
+    alt="Windows"
+  />
   <div class="sm:ml-8 ml-0 mt-8 sm:mt-0 text-center sm:text-left">
-    <p class="mb-2 font-bold">
+    <p class="mb-1 font-bold">
       Showing tips for <span class="windows">Windows</span><span class="macos"
         >macOS</span
       >

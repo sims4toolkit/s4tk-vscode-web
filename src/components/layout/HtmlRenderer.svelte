@@ -116,6 +116,14 @@
       display: inline-block;
     }
 
+    .feature-img-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
     img.feature-img {
       -webkit-box-shadow: 2px 2px 4px var(--color-shadow);
       box-shadow: 2px 2px 8px var(--color-shadow);

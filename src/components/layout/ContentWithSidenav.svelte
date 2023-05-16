@@ -6,6 +6,7 @@
   import Settings from "src/lib/settings";
   import SectionHeader from "src/components/elements/SectionHeader.svelte";
   import OsDisclaimer from "src/components/elements/OsDisclaimer.svelte";
+  import LoadError from "src/components/elements/LoadError.svelte";
   import Sidenav from "./Sidenav.svelte";
   import HtmlRenderer from "./HtmlRenderer.svelte";
 
@@ -60,9 +61,11 @@
   }
 </script>
 
-<div class="flex flex-col md:flex-row gap-10">
+<div class="flex-1 flex flex-col md:flex-row gap-10">
   {#if indexLoadError}
-    <p>Error</p>
+    <div class="flex-1 flex items-center">
+      <LoadError />
+    </div>
   {:else}
     <Sidenav {basePageName} {basePageEndpoint} {activeSubpage} {subpageIndex} />
     <div class="w-full">
