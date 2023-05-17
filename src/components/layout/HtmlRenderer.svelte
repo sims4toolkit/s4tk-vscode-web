@@ -1,12 +1,10 @@
 <script lang="ts">
-  import { fade } from "svelte/transition";
   import { getImageSource } from "src/lib/data";
 
   export let basePageEndpoint: string;
   export let htmlContent: string;
 
   let wrapper: HTMLDivElement;
-  let previewingImageSrc: string;
 
   $: {
     if (htmlContent && wrapper) setHtmlContent();
@@ -28,39 +26,11 @@
       const relSrc = img.attributes.getNamedItem("data-src");
       if (!relSrc?.value) return;
       img.src = getImageSource(basePageEndpoint, relSrc.value);
-
-      // make clickable
-      img.classList.add("hover:cursor-pointer");
-      img.onclick = displayImage;
     }
-  }
-
-  function displayImage() {
-    previewingImageSrc = this.src;
   }
 </script>
 
 <div bind:this={wrapper} class="html-renderer" />
-
-{#if Boolean(previewingImageSrc)}
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <div
-    in:fade
-    class="fixed top-0 bottom-0 left-0 right-0 z-50 flex items-center justify-center bg-gray-50 dark:bg-gray-950 bg-opacity-90 dark:bg-opacity-90"
-    on:click={() => (previewingImageSrc = undefined)}
-  >
-    <img
-      class="h-3/4 w-11/12 object-contain drop-shadow-md"
-      src={previewingImageSrc}
-      alt="preview"
-    />
-    <p
-      class="absolute bottom-8 left-1/2 -translate-x-1/2 text-subtle drop-shadow-md text-center"
-    >
-      Click anywhere to close image preview
-    </p>
-  </div>
-{/if}
 
 <style lang="scss" global>
   // this must be global or else the class names get mangled, which does not
@@ -71,6 +41,7 @@
       font-weight: bold;
       margin-top: 1.5rem;
       margin-bottom: 1rem;
+      color: var(--color-accent);
     }
 
     h4 {
