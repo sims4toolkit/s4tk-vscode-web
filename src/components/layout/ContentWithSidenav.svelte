@@ -38,6 +38,7 @@
   }
 
   async function fetchHtmlContent() {
+    htmlContent = undefined;
     contentLoadError = false;
     const content = await fetchPageContent(basePageEndpoint, activeSubpage);
     if (content) {
