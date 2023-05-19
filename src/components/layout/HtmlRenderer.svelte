@@ -96,8 +96,8 @@
     }
 
     img.feature-img {
-      -webkit-box-shadow: 2px 2px 4px var(--color-shadow);
-      box-shadow: 2px 2px 8px var(--color-shadow);
+      filter: drop-shadow(2px 2px 8px var(--color-shadow));
+      -webkit-filter: drop-shadow(2px 2px 8px var(--color-shadow));
     }
 
     .paragraphs {
