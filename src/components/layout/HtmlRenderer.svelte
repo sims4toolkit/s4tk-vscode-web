@@ -58,12 +58,13 @@
       border-color: var(--color-text-subtle);
     }
 
-    a {
+    a,
+    code {
       color: var(--color-accent-secondary);
     }
 
     code {
-      color: var(--color-accent);
+      overflow-wrap: break-word;
     }
 
     ol {
@@ -101,8 +102,8 @@
     }
 
     .paragraphs {
-      p,
-      ul {
+      & > p,
+      & > ul {
         & + ul,
         & + p:not(.footnote) {
           margin-top: 1rem;
@@ -114,6 +115,15 @@
       color: var(--color-text-subtle);
       font-size: 0.85rem;
       margin-top: 0.15rem;
+
+      .superscript {
+        color: var(--color-text-subtle);
+      }
+    }
+
+    .superscript {
+      font-size: 0.65rem;
+      vertical-align: super;
     }
 
     .danger {
