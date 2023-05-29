@@ -20,12 +20,13 @@
         linkIcon="vscode.png"
         linkText="Download VS Code"
         linkHref="https://code.visualstudio.com"
+        target="_blank"
       />
       <HomePagePanel
         linkIcon="s4tk-transparent.png"
         linkText="Add the S4TK Extension"
-        linkHref="#/learn/intro-to-s4tk-extension"
-        target="_self"
+        linkHref="https://marketplace.visualstudio.com/items?itemName=sims4toolkit.s4tk-vscode"
+        target="_blank"
       />
       <HomePagePanel
         linkIcon="library.svg"

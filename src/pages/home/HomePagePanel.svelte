@@ -3,7 +3,7 @@
   export let linkText: string;
   export let linkHref: string;
   export let isSvg: boolean = false;
-  export let target: "_self" | "_blank" = "_blank";
+  export let target: "_self" | "_blank";
 </script>
 
 <div>

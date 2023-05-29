@@ -1,7 +1,8 @@
 import type { SubpageIndex } from "src/global";
 
 // FIXME: Use actual URL or put in config/env variables
-const BASE_URL = "http://127.0.0.1:5500";
+// const BASE_URL = "http://127.0.0.1:5500/src"; // dev
+const BASE_URL = "https://raw.githubusercontent.com/sims4toolkit/s4tk-vscode-web-data/prod/build"; // prod
 
 const INDEX_CACHE = new Map<string, SubpageIndex>();
 const CONTENT_CACHE = new Map<string, string>();
