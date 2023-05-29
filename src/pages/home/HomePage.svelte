@@ -14,7 +14,7 @@
     class="my-12 w-full xl:max-w-screen-xl px-4 flex flex-col justify-center"
   >
     <div
-      class="w-full flex flex-col md:flex-row md:flex-wrap gap-10 justify-center"
+      class="w-full flex flex-col md:flex-row md:flex-wrap gap-10 justify-center items-center"
     >
       <HomePagePanel
         linkIcon="vscode.png"
