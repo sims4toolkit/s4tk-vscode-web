@@ -7,10 +7,12 @@
     class="w-full xl:max-w-screen-xl px-4 flex flex-col justify-center items-center"
   >
     <div class="text-center">
-      <h1 class="text-2xl font-bold mb-4 drop-shadow-md text-white">
+      <h1 class="text-3xl font-bold mb-4 drop-shadow-md text-white">
         Sims 4 Toolkit in VS Code
       </h1>
-      <p class="text-white">Build packages with S4TK, no scripting required.</p>
+      <p class="tetx-lg text-white">
+        Build packages with S4TK, no scripting required.
+      </p>
     </div>
     <div
       class="w-full py-10 flex flex-col md:flex-row items-center justify-center gap-10 lg:gap-20"
@@ -27,7 +29,7 @@
               src="./assets/checkmark.svg"
               alt="Check"
               class="svg-light h-4 inline-block"
-            /> Loose XML files
+            /> Loose tuning files
           </li>
           <li class="text-white">
             <img
@@ -55,9 +57,7 @@
           class="ml-0 md:ml-5 mt-4 zoom-on-hover inline-block no-underline hover:cursor-pointer"
           href="#/features"
         >
-          <div
-            class="px-4 py-2 bg-gray-100 dark:bg-gray-900 rounded-md shadow-md"
-          >
+          <div class="px-4 py-2 bg-white dark:bg-gray-900 rounded-md shadow-md">
             <div class="flex gap-2 items-center justify-center">
               <h4 class="whitespace-nowrap">And more</h4>
               <img
