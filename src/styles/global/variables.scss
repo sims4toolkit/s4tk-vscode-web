@@ -17,6 +17,12 @@
   $accent-primary-light: #18ac87;
   $accent-secondary-light: #0095eb;
 
+  // colors
+  --color-accent-light: #{$accent-primary-light};
+  --color-accent-dark: #{$accent-primary-dark};
+  --color-accent-secondary-light: #{$accent-secondary-light};
+  --color-accent-secondary-dark: #{$accent-secondary-dark};
+
   // filters
   --filter-dark: invert(13%) sepia(3%) saturate(427%) hue-rotate(314deg) brightness(105%) contrast(84%);
   --filter-light: invert(99%) sepia(74%) saturate(352%) hue-rotate(196deg) brightness(121%) contrast(100%);

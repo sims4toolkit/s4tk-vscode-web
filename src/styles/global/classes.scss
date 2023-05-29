@@ -97,6 +97,16 @@
   background-image: linear-gradient(45deg, var(--color-accent-invert) 0%, var(--color-accent-secondary-invert) 100%);
 }
 
+.bg-gradient-dark {
+  // intentionally inverted for contrast
+  background-image: linear-gradient(45deg, var(--color-accent-light) 0%, var(--color-accent-secondary-light) 100%);
+}
+
+.bg-gradient-light {
+  // intentionally inverted for contrast
+  background-image: linear-gradient(45deg, var(--color-accent-dark) 0%, var(--color-accent-secondary-dark) 100%);
+}
+
 .bg-primary {
   background-color: var(--color-accent);
 }
